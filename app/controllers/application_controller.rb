@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   
   def login_page
 
-    #render html: "LOGIN PAGE!!"  
+    render html: "LOGIN PAGE!!"  
   end
   
   
