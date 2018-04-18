@@ -12,14 +12,25 @@
         <%= link_to "Codename: Owlbear", '#', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
+              <li><%= link_to "Character List", current_user %></li>
+            <% end %>
             <li><%= link_to "About",  root_path %></li>
-            <li><%= link_to "Help",   'static_pages/help' %></li>
-            <li><%= link_to "Log in", '#' %></li>
+            <li><%= link_to "Help",   'help' %></li>
+            <% if logged_in? %>
+              <li><%= link_to "Settings", 'settings' %></li>
+              <li><%= link_to "Log out", logout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Log in", 'login' %></li>
+            <% end %>
           </ul>
         </nav>
       </div>
     </header>
     <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
       <%= yield %>
     </div>
   </body>
