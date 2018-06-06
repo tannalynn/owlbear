@@ -1,10 +1,28 @@
-<% provide(:title, 'User page') %>
+<% provide(:title, 'View All Characters') %>
 
 <h1>Character List</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    List characters here
-  
+    <%= link_to "Add New Character", new_character_path %>
+    <hr />
+    <% if @user.characters.count == 0 %>
+    No Characters yet! Create a new character to get started.
+    <% else %>
+      <table>
+        <tr>
+          <th>Name</th><th>Class</th><th>Race</th><th></th><th></th>
+        </tr>
+        <% @user.characters.each do |character| %>
+        <tr>
+          <td><%= link_to character.name, character %></td>
+          <td><%= character.character_class %></td>
+          <td><%= character.race %></td>
+          <td><%= link_to "Edit", edit_character_path(character) %></td>
+          <td><%= link_to "Delete", delete_character_path(:id=>character) %></td>
+        </tr>
+        <% end %>
+      </table>
+    <% end %>
   </div>
 </div>

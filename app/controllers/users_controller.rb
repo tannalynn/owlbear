@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @user_characters = @user.characters
+    @user_characters.each do |ch|
+      puts "#{ch.name} id:#{ch.id} "
+    end
+    
   end
   
   def new
@@ -24,6 +29,16 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Account Information Updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
   
   

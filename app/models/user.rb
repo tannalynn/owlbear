@@ -12,8 +12,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: {maximum: 60},
                     format: {with: EMAIL_PATTERN},
                     uniqueness: { case_sensitive: false }
-                    
+
   validates :password, length: {minimum: 8}                
   
-           
+  has_many :characters, dependent: :destroy
+  
+  
+  
 end

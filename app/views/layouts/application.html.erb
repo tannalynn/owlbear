@@ -9,16 +9,20 @@
   <body>
    <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-        <%= link_to "Codename: Owlbear", '#', id: "logo" %>
+        <% if logged_in? %>
+          <%= link_to "Codename: Owlbear", current_user, id: "logo" %>
+        <% else %>
+          <%= link_to "Codename: Owlbear", root_path, id: "logo" %>
+        <% end %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
               <li><%= link_to "Character List", current_user %></li>
             <% end %>
             <li><%= link_to "About",  root_path %></li>
-            <li><%= link_to "Help",   'help' %></li>
+            <!--<li>< %= link_to "Help",   '#' %></li>-->
             <% if logged_in? %>
-              <li><%= link_to "Settings", 'settings' %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li><%= link_to "Log out", logout_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "Log in", 'login' %></li>

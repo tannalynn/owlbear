@@ -1,10 +1,18 @@
 <% provide(:title, "About") %>
 
 <h1>About</h1>
-<p>d&d character creator</p>
+<p align="center">Dungeons and Dragons 5th edition character creator!
+<% if logged_in? %>
+You're logged in! Go make some characters.
+<% else %>
+Sign up and make some characters.
+<% end %>
+</p>
+<br/>
+<p align="center"><%= image_tag "owlbear1.png", :width => 500 %></p>
 
-<%= image_tag "owlbear1.png" %>
-
-
+<br/><br/>
+<br/><br/>
+<br/><br/>
 <h1>Contact</h1>
-<p>Don't talk to me</p>
+<p align="center">Don't talk to me</p>

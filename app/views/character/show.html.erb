@@ -1,0 +1,213 @@
+<% provide(:title, 'View Character') %>
+
+<h1>View Character</h1>
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= link_to "← Back", current_user %>
+    <hr />
+    <%= form_for(@character) do |f| %>
+      <%= render 'shared/error_messages' %>
+      <!-- Character sheet header-->
+      <table>
+        <tr>
+          <th colspan="2"><%= f.label "Character Name" %></th>
+          <th><%= f.label :level%></th>
+        </tr>
+        <tr>
+          <td colspan="2"><%= f.text_field :name, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :level, class: 'form-control', :readonly => true  %></td>
+        </tr>
+        
+        <tr>
+          <th><%= f.label :character_class %></th>
+          <th><%= f.label :background %></th>
+          <th><%= f.label :player_name %></th>
+        </tr>
+        <tr>
+         <td><%= f.text_field :character_class, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :background, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :player_name, class: 'form-control', :readonly => true %></td>
+        </tr>
+        
+        <tr>
+          <th><%= f.label :race %></th>
+          <th><%= f.label :alignment %></th>
+          <th><%= f.label :xp %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_field :race, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :alignment, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :xp, class: 'form-control', :readonly => true %></td>
+        </tr>
+      </table>
+      
+      <br/>
+      <!--AC+ -->
+      <table>
+        <tr>
+          <th><%= f.label "AC" %></th>
+          <th><%= f.label :initiative %></th>
+          <th><%= f.label :speed %></th>
+          <th><%= f.label :hp %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_field :ac, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :initiative, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :speed, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :hp, class: 'form-control', :readonly => true %></td>
+        </tr>
+      </table>
+      
+      <br/>
+      <!-- Attributes -->
+      <table>
+        <tr>
+          <th><%= f.label "Strength" %></th>
+          <th><%= f.label "Dexterity" %></th>
+          <th><%= f.label "Constitution" %></th>
+          <th><%= f.label "Intelligence" %></th>
+          <th><%= f.label "Wisdom" %></th>
+          <th><%= f.label "Charisma" %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_field :str, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :dex, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :con, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :intel, class: 'form-control',:readonly => true%></td>
+          <td><%= f.text_field :wis, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :cha, class: 'form-control', :readonly => true %></td>
+        </tr>
+      </table>
+      
+      <br/><br/>
+      <!-- Skills -->
+      <table>
+        <tr>
+          <th><%= f.label "Acrobatics" %></th>
+          <th><%= f.label "Animal Handling" %></th>
+          <th><%= f.label "Arcana" %></th>
+          <th><%= f.label "Athletics" %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_field :sklmod_acrobatics, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_animalhandling, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_arcana, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_athletics, class: 'form-control', :readonly => true %></td>
+        </tr>
+        
+        <tr>
+          <th><%= f.label "Deception" %></th>
+          <th><%= f.label "History" %></th>
+          <th><%= f.label "Insight" %></th>
+          <th><%= f.label "Intimidation" %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_field :sklmod_deception, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_history, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_insight, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_intimidation, class: 'form-control', :readonly => true %></td>
+        </tr>
+        
+        <tr>
+          <th><%= f.label "Investigation" %></th>
+          <th><%= f.label "Medicine" %></th>
+          <th><%= f.label "Nature" %></th>
+          <th><%= f.label "Perception" %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_field :sklmod_investigation, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_medicine, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_nature, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_perception, class: 'form-control', :readonly => true %></td>
+        </tr>
+        
+        <tr>
+          <th><%= f.label "Performance" %></th>
+          <th><%= f.label "Persuasion" %></th>
+          <th><%= f.label "Religion" %></th>
+          <th><%= f.label "Sleight of Hand" %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_field :sklmod_performance, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_persuation, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_religion, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :sklmod_sleightofhand, class: 'form-control', :readonly => true %></td>
+        </tr>
+        
+        <tr>
+          <th colspan="2"><%= f.label "Stealth" %></th>
+          <th colspan="2"><%= f.label "Survival" %></th>
+        </tr>
+        <tr>
+          <td colspan="2"><%= f.text_field :sklmod_stealth, class: 'form-control', :readonly => true %></td>
+          <td colspan="2"><%= f.text_field :sklmod_survival, class: 'form-control', :readonly => true %></td>
+        </tr>
+      </table>
+
+      <br/>
+      <!-- misc vals-->
+      <table>
+        <tr>
+          <th><%= f.label :inspiration %></th>
+          <th><%= f.label "Proficiency Bonus" %></th>
+          <th><%= f.label "Hitdice Total" %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_field :inspiration, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :proficiency_bonus, class: 'form-control', :readonly => true %></td>
+          <td><%= f.text_field :hitdice_total, class: 'form-control', :readonly => true %></td>
+        </tr>
+      </table>
+
+      <br/><br/>
+      <table>
+        <tr>
+          <th><%= f.label "Proficiencies and Languages" %></th>
+          <th><%= f.label "Weapons and Attacks" %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_area :proficiencies_languages, class: 'form-control', :rows => 4, :readonly => true %></td>
+          <td><%= f.text_area :weapons_attacks, class: 'form-control', :rows => 4, :readonly => true %></td>
+        </tr>
+        
+        <tr>
+          <th><%= f.label "Feats and notes" %></th>
+          <th><%= f.label :equipment %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_area :feats_notes, class: 'form-control', :rows => 4, :readonly => true %></td>
+          <td><%= f.text_area :equipment, class: 'form-control', :rows => 4, :readonly => true %></td>
+        </tr>
+      </table>
+    
+      <br/>
+      <table>
+        <tr>
+          <th><%= f.label "Personality Traits" %></th>
+          <th><%= f.label :ideals %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_area :personality_traits, class: 'form-control', :rows => 3, :readonly => true %></td>
+          <td><%= f.text_area :ideals, class: 'form-control', :rows => 3, :readonly => true %></td>
+        </tr>
+        
+        <tr>
+          <th><%= f.label :bonds %></th>
+          <th><%= f.label :flaws %></th>
+        </tr>
+        <tr>
+          <td><%= f.text_area :bonds, class: 'form-control', :rows => 3, :readonly => true %></td>
+          <td><%= f.text_area :flaws, class: 'form-control', :rows => 3, :readonly => true %></td>
+        </tr>
+      </table>
+                  <br/><br/><br/>
+      <%= f.hidden_field :user_id %> 
+    <% end %>
+  </div>
+</div>
+
+
+
+
