@@ -5,6 +5,8 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <%= link_to "← Back", current_user %>
+    <hr />
     <%= form_for(@character, url: new_character_path) do |f| %>
       <%= render 'shared/error_messages' %>
       

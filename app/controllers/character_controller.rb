@@ -9,7 +9,7 @@ class CharacterController < ApplicationController
     @character.user_id = current_user.id
     if @character.save
       flash[:success] = "Character created!"
-      redirect_to '/about'
+      redirect_to current_user
     else
       render 'new'
     end
